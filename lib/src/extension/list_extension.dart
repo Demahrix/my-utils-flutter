@@ -26,4 +26,18 @@ extension MyListExtension<E> on List<E> {
     return newList;
   }
 
+  /// Evite d'ecrire ce gens de code
+  /// ```
+  /// final List<dynamic> contacts = data["contacts"];
+  /// data["contact"] = contacts == null ? List.generate(contacts.length, (index) => ClientContactModel.fromJson(contacts[index]))
+  /// ```
+  // static List<V>? zGenerate<T, V>(List<T>? list, V Function(T) f) {
+  //   if (list == null)
+  //     return null;
+  //   List<V> newList = [];
+  //   for (int i=0; i<list.length; ++i)
+  //     newList[i] = f(list[i]);
+  //   return newList;
+  // }
+
 }

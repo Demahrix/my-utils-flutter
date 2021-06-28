@@ -2,7 +2,7 @@ name: my_utils
 description: A new Flutter package.
 version: 0.0.1
 author: Zougouri Ahmed <hamed.zgr@gmail.com>
-homepage:
+homepage: https://bitbucket.org/demahrix/my-utils
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
