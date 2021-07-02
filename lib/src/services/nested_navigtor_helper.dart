@@ -5,11 +5,13 @@ class NestedNavigatorHelper extends StatelessWidget {
   final GlobalKey<NavigatorState> navigationKey;
   final String initialRoute;
   final RouteFactory onGenerateRoute;
+  final List<NavigatorObserver> observers;
 
   NestedNavigatorHelper({
     required this.navigationKey,
     required this.initialRoute,
-    required this.onGenerateRoute
+    required this.onGenerateRoute,
+    this.observers: const []
   });
 
   @override
@@ -25,6 +27,7 @@ class NestedNavigatorHelper extends StatelessWidget {
       child: Navigator(
         key: navigationKey,
         initialRoute: initialRoute,
+        observers: observers,
         onGenerateRoute: onGenerateRoute,
       ),
     );
