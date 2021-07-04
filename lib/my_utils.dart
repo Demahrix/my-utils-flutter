@@ -8,6 +8,7 @@ export 'src/services/unique_instance.dart';
 export 'src/services/nested_navigtor_helper.dart';
 export 'src/services/my_navigator_observer.dart';
 export 'src/services/theme_switcher_bloc.dart';
+export 'src/services/app_version.dart';
 
 export 'src/models/http_error.dart';
 

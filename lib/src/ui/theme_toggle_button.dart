@@ -8,20 +8,14 @@ class ThemeToggleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<ThemeMode>(
-      initialData: bloc.mode,
-      stream: bloc.listen,
-      builder: (_, snapshot) {
-        final data = snapshot.data!;
-        return IconButton(
-          onPressed: bloc.change,
-          icon: Icon(
-            data == ThemeMode.light ? Icons.wb_sunny_outlined : Icons.nights_stay_outlined,
-            color: Theme.of(context).iconTheme.color
-          ),
-          tooltip: "Mode jour/nuit",
-        );
-      }
+    final isLight = Theme.of(context).brightness == Brightness.light;
+    return IconButton(
+      onPressed: bloc.change,
+      icon: Icon(
+        isLight ? Icons.wb_sunny_outlined : Icons.nights_stay_outlined,
+        color: Theme.of(context).iconTheme.color
+      ),
+      tooltip: "Mode jour/sombre",
     );
   }
 
