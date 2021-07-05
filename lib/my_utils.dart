@@ -3,6 +3,8 @@ library my_utils;
 export 'src/extension/list_extension.dart';
 export 'src/extension/string_extension.dart';
 export 'src/extension/map_extension.dart';
+export 'src/extension/date_extension.dart';
+export 'src/extension/number_extension.dart';
 
 export 'src/services/unique_instance.dart';
 export 'src/services/nested_navigtor_helper.dart';
