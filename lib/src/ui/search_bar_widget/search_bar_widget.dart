@@ -20,18 +20,19 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLight = Theme.of(context).brightness == Brightness.light;
     return Container(
       height: 48.0,
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       margin: margin,
       decoration: BoxDecoration(
-        color: Color(0x0d000000), // black with opacity 0.05
+        color: isLight ? Color(0x0d000000) : Colors.white10,  // Color(0x0d000000), // black with opacity 0.05
         borderRadius: BorderRadius.circular(6.0)
       ),
       child: Row(
         children: [
 
-          const Icon(Icons.search, color: Colors.black54),
+          Icon(Icons.search, color: isLight ? Colors.black54 : Colors.white54),
 
           const SizedBox(width: 10.0),
 
