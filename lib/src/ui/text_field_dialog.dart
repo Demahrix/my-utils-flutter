@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 /// Affiche un dialog avec un textfield et les button "enregister" et "annuler" à l'intérieur
 Future<String?> showTextFieldDialog({
     required BuildContext context,
