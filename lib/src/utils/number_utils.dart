@@ -1,10 +1,8 @@
 
-extension IntExtension on int {
+class IntUtils {
 
-  // Optimiser: implementer sans convertir en string
-  @Deprecated("utils la class IntUtils")
-  String thousandFormatter([String separator = " "]) {
-    String digits = this.toString();
+  static String thousandFormatter(int n, [String separator = " "]) {
+    String digits = n.toString();
     StringBuffer sb = StringBuffer();
     int length = digits.length;
     int start = length % 3;
@@ -23,11 +21,10 @@ extension IntExtension on int {
 
 }
 
-extension DoubleExtension on double {
+class DoubleUtils {
 
-  @Deprecated("utils la class DoubleUtils")
-  String thousandFormatter({String separator = " ", bool includeFloatPart = true}) {
-    String str = this.toStringAsFixed(2);
+  static String thousandFormatter(double n, {String separator = " ", bool includeFloatPart = true}) {
+    String str = n.toStringAsFixed(2);
 
     String digits = str.substring(0, str.length - 3);
     StringBuffer sb = StringBuffer();
