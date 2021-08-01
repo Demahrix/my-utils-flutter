@@ -1,7 +1,8 @@
 
 extension MyListExtension<E> on List<E> {
 
-  // for classic > list.generate > for in
+  
+  @Deprecated("utiliser la class ListUtils")
   List<T> zMap<T>(T Function(E) f) {
     final List<T> newList = [];
     for (int i=0, len=this.length; i<len; ++i)
@@ -9,6 +10,7 @@ extension MyListExtension<E> on List<E> {
     return newList;
   }
 
+  @Deprecated("utiliser la class ListUtils")
   T? zReduce<T>(T Function(T? acc, E element) f, [T? initialValue]) {
     T? value = initialValue;
     for (int i=0, len=this.length; i<len; ++i)
@@ -16,6 +18,7 @@ extension MyListExtension<E> on List<E> {
     return value;
   }
 
+  @Deprecated("utiliser la class ListUtils")
   List<E> zFilter(bool Function(E) f) {
     List<E> newList = [];
     for (int i=0, len=this.length; i<len; ++i) {

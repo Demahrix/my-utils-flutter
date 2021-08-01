@@ -1,6 +1,10 @@
 
 class StringUtils {
 
+  static bool isFalsy(String? s) {
+    return s == null || s == "" || s.trim() == "";
+  }
+
   static String thousandFormatter(String s, [String separator = " "]) {
     final StringBuffer sb = StringBuffer();
     final int length = s.length;

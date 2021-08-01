@@ -9,6 +9,7 @@ export 'src/extension/number_extension.dart';
 export 'src/utils/string_utils.dart';
 export 'src/utils/number_utils.dart';
 export 'src/utils/date_utils.dart';
+export 'src/utils/list_utils.dart';
 
 export 'src/services/unique_instance.dart';
 export 'src/services/nested_navigtor_helper.dart';
