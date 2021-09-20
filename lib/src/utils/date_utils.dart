@@ -24,10 +24,8 @@ class MyDateUtils {
       case DateUtilsFormat.short:
         return _formatShort(d);
       case DateUtilsFormat.long:
-        _formatLong(d);
-        break;
+        return _formatLong(d);
     }
-    return _formatShort(d);
   }
 
   static String _formatShort(DateTime d) {
