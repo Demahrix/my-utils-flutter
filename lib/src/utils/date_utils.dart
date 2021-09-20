@@ -11,13 +11,16 @@ enum DateUtilsFormat {
 }
 
 
-class DateUtils {
+class MyDateUtils {
 
   static final List<String> _days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
   static final List<String> _months = ["Janiver", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"];
 
-  static String format(DateTime d, [DateUtilsFormat f = DateUtilsFormat.short]) {
-    switch(f) {
+  /// Permet de format une date, `type` défini le type
+  /// short 12/12/2012
+  /// long Mercredi, 12 Décembre 2012
+  static String format(DateTime d, [DateUtilsFormat type = DateUtilsFormat.short]) {
+    switch(type) {
       case DateUtilsFormat.short:
         return _formatShort(d);
       case DateUtilsFormat.long:
