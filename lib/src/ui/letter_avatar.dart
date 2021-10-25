@@ -17,23 +17,31 @@ class CircleAvatarLetters extends StatelessWidget {
 
   final String name;
   final double radius;
+  final bool transparent;
 
-  const CircleAvatarLetters(this.name, { this.radius = 20.0 }): assert(name != null), assert(radius != null);
+  const CircleAvatarLetters(
+    this.name, {
+      this.radius = 20.0,
+      this.transparent: false
+    }
+  );
 
   @override
   Widget build(BuildContext context) {
 
     final String letters = _getInitialLetter(name).toUpperCase();
 
+    final color = _getColor(letters);
+
     return CircleAvatar(
-      backgroundColor: _getColor(letters),
+      backgroundColor: transparent ? color.withOpacity(0.25) : color,
       radius: radius,
       child: Text(
         letters,
         style: TextStyle(
           // fontWeight: FontWeight.bold,
           fontSize: radius / 1.5,
-          color: Colors.white
+          color: transparent ? color : Colors.white
         ),
       ),
     );

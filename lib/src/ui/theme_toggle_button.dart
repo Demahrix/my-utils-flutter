@@ -16,7 +16,7 @@ class ThemeToggleButton extends StatelessWidget {
 
   ThemeToggleButton.unicode(this.bloc):
     lightIcon = const Text(
-        "🌚",
+        "🌜",
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 18.0,
