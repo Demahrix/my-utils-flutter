@@ -2,6 +2,9 @@
 
 A new Flutter package.
 
+## TODO
+* Ajouter le package `flutter_lints`
+
 ## Getting Started
 
 This project is a starting point for a Dart

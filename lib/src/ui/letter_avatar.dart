@@ -9,7 +9,7 @@ class CircleAvatarLetters extends StatelessWidget {
     Colors.green,
     Colors.indigo,
     Colors.brown,
-    Colors.blueGrey,
+    // Colors.blueGrey,
     Colors.purple,
     Colors.red,
     Colors.lime
@@ -18,11 +18,13 @@ class CircleAvatarLetters extends StatelessWidget {
   final String name;
   final double radius;
   final bool transparent;
+  final FontWeight fontWeight;
 
   const CircleAvatarLetters(
     this.name, {
       this.radius = 20.0,
-      this.transparent: false
+      this.transparent: false,
+      this.fontWeight = FontWeight.w600
     }
   );
 
@@ -39,7 +41,7 @@ class CircleAvatarLetters extends StatelessWidget {
       child: Text(
         letters,
         style: TextStyle(
-          // fontWeight: FontWeight.bold,
+          fontWeight: fontWeight,
           fontSize: radius / 1.5,
           color: transparent ? color : Colors.white
         ),
