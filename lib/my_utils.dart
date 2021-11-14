@@ -19,7 +19,6 @@ export 'src/services/theme_switcher_bloc.dart';
 export 'src/services/app_version.dart';
 export 'src/utils/expirable_future.dart';
 
-export 'src/enum/request_state.dart';
 export 'src/models/http_error.dart';
 
 export 'src/ui/search_bar_widget/search_bar_widget.dart';
