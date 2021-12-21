@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:my_utils/src/services/app_version.dart';
 import 'package:my_utils/src/services/theme_switcher_bloc.dart';
 import 'package:my_utils/src/services/unique_instance.dart';
+import 'package:my_utils/src/utils/my_http_utils.dart';
 
 class Exemple {
   final int a;
@@ -30,7 +31,6 @@ void main() {
 
     return completer.future;
   });
-
 
   group("test register", () {
 
@@ -59,12 +59,6 @@ void main() {
 
   });
 
-
-
-
-
-
-
   group("app version", () {
 
     AppVersion v1 = AppVersion("1.27.0");
@@ -84,6 +78,19 @@ void main() {
 
   });
 
+  group("Http utils", () {
 
+    test('Map to query params', () {
+
+      expect(MyHttpUtils.toQuery({
+        'id': 'abc',
+        'price': 100,
+        'startDate': '21/12/2021',
+        'endDate': null
+      }), 'id=abc&price=100&startDate=21/12/2021');
+
+    });
+
+  });
 
 }

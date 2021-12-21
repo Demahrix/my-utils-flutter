@@ -1,7 +1,6 @@
 name: my_utils
 description: A new Flutter package.
-version: 0.0.1
-author: Zougouri Ahmed <hamed.zgr@gmail.com>
+version: 0.0.2
 homepage: https://bitbucket.org/demahrix/my-utils
 
 environment:

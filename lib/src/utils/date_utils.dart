@@ -10,7 +10,7 @@ enum DateUtilsFormat {
 
 }
 
-
+@Deprecated('Utiliser le package MyDateUtils')
 class MyDateUtils {
 
   static final List<String> _days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
