@@ -1,11 +1,5 @@
 library my_utils;
 
-export 'src/extension/list_extension.dart';
-export 'src/extension/string_extension.dart';
-export 'src/extension/map_extension.dart';
-export 'src/extension/date_extension.dart';
-export 'src/extension/number_extension.dart';
-
 export 'src/utils/string_utils.dart';
 export 'src/utils/number_utils.dart';
 export 'src/utils/date_utils.dart';
