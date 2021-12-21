@@ -1,7 +1,7 @@
 
 class MyHttpUtils {
 
-  static String toQuery(Map<String, Object?> queries) {
+  static String toQuery(Map<String, Object?> queries, [ bool includeQuestionMark = true ]) {
     StringBuffer? sb;
 
     for (final entry in queries.entries) {
@@ -19,7 +19,8 @@ class MyHttpUtils {
     if (sb == null)
       return "";
 
-    return Uri.decodeQueryComponent(sb.toString());
+    final result = Uri.decodeQueryComponent(sb.toString());
+    return includeQuestionMark ? '?' + result : result;
   }
 
 
