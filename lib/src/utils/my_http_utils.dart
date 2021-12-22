@@ -23,5 +23,4 @@ class MyHttpUtils {
     return includeQuestionMark ? '?' + result : result;
   }
 
-
 }

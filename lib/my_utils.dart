@@ -2,7 +2,6 @@ library my_utils;
 
 export 'src/utils/string_utils.dart';
 export 'src/utils/number_utils.dart';
-export 'src/utils/date_utils.dart';
 export 'src/utils/list_utils.dart';
 export 'src/utils/my_http_utils.dart';
 
