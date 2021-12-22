@@ -10,13 +10,15 @@ class SearchBarWidget extends StatelessWidget {
   final bool hasDivider;
 
   /// Le diviser ne peut pas s'afficher si `filterWidget` est égal à `null`
-  SearchBarWidget({
+  const SearchBarWidget({
+    Key? key, 
     required this.label,
     this.margin,
     this.filterWidget,
     required this.onChanged,
     bool hasDivider = true
-  }): hasDivider = filterWidget == null ? false : hasDivider;
+  }): hasDivider = filterWidget == null ? false : hasDivider,
+      super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class SearchBarWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       margin: margin,
       decoration: BoxDecoration(
-        color: isLight ? Color(0x0d000000) : Colors.white10,  // Color(0x0d000000), // black with opacity 0.05
+        color: isLight ? const Color(0x0d000000) : Colors.white10,  // Color(0x0d000000), // black with opacity 0.05
         borderRadius: BorderRadius.circular(6.0)
       ),
       child: Row(
@@ -49,7 +51,7 @@ class SearchBarWidget extends StatelessWidget {
           const SizedBox(width: 10.0),
 
           if (hasDivider)
-            VerticalDivider(width: 1.0, indent: 5.0, endIndent: 5.0,),
+            const VerticalDivider(width: 1.0, indent: 5.0, endIndent: 5.0,),
 
           const SizedBox(width: 10.0),
 

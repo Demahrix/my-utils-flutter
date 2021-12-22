@@ -3,7 +3,8 @@
 A new Flutter package.
 
 ## TODO
-* Ajouter le package `flutter_lints`
+* Continuer a implementer my_future_builder
+* implementer aussi http_future_builder
 
 ## Getting Started
 

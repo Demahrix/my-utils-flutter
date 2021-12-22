@@ -4,15 +4,14 @@ class UniqueInstance {
 
   static UniqueInstance? _instance;
 
-  final HashMap<Type, dynamic> _bucket = new HashMap();
+  final HashMap<Type, dynamic> _bucket = HashMap();
   /// Contient les facotries des lazy singletons
-  final HashMap<Type, dynamic Function()> _lazyBucket = new HashMap();
+  final HashMap<Type, dynamic Function()> _lazyBucket = HashMap();
 
   UniqueInstance._();
 
   factory UniqueInstance.getInstance() {
-    if (_instance == null)
-      _instance = new UniqueInstance._();
+      _instance ??= UniqueInstance._();
     return _instance!;
   }
 
@@ -28,14 +27,14 @@ class UniqueInstance {
       return _bucket[T];
     }
 
-    throw new Exception("Aucun element de type $T n'a été enregistré !");
+    throw Exception("Aucun element de type $T n'a été enregistré !");
   }
 
   /// Enregistre un objet de type `T`.
   /// **Eleve une exception** si un objet ou un factory retournant un objet du meme type exise déjà
   void register<T>(T object) {
     if (_bucket.containsKey(T) || _lazyBucket.containsKey(T))
-      throw new Exception("Un element de type $T a déjà été enregistré !");
+      throw Exception("Un element de type $T a déjà été enregistré !");
     _bucket[T] = object;
   }
 
@@ -43,7 +42,7 @@ class UniqueInstance {
   /// **Eleve une exception** si un objet ou un factory retournant un objet du meme type exise déjà
   void registerLazy<T>(T Function() builder) {
     if (_bucket.containsKey(T) || _lazyBucket.containsKey(T))
-      throw new Exception("Un element de type $T a déjà été enregistré !");
+      throw Exception("Un element de type $T a déjà été enregistré !");
     _lazyBucket[T] = builder;
   }
 
@@ -55,7 +54,7 @@ class UniqueInstance {
     else if (_lazyBucket.containsKey(T))
       _lazyBucket.remove(T);
     else
-      throw new Exception("Aucun element de type $T n'a été enregistré !");
+      throw Exception("Aucun element de type $T n'a été enregistré !");
   }
 
   /// Met à jour un object s'il n'existe pas l'ajoute

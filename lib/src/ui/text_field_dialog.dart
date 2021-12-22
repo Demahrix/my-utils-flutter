@@ -6,11 +6,11 @@ Future<String?> showTextFieldDialog({
     required BuildContext context,
     required String title,
     required String placeholder,
-    String initialValue: "",
-    String primaryLabel: "Enregister",
-    String secondaryLabel: "Annuler",
+    String initialValue = "",
+    String primaryLabel = "Enregister",
+    String secondaryLabel = "Annuler",
     String Function(String?)? validator,
-    List<TextInputFormatter> inputFormatter: const []
+    List<TextInputFormatter> inputFormatter = const []
   }) {
   return showDialog<String?>(
     context: context,
@@ -36,14 +36,14 @@ class _TextFieldDialog extends StatefulWidget {
   final String Function(String?)? validator;
   final List<TextInputFormatter> inputFormatter;
 
-  _TextFieldDialog({
+  const _TextFieldDialog({
     required this.title,
     required this.placeholder,
     required this.initialValue,
     required this.primaryLabel,
     required this.secondaryLabel,
     required this.validator,
-    required this.inputFormatter
+    this.inputFormatter = const []
   });
 
   @override
@@ -56,7 +56,7 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
   String? _errorText;
 
   static final ButtonStyle _buttonStyle = ButtonStyle(
-    padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0)),
+    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0)),
     elevation: MaterialStateProperty.all(0.0)
   );
 
@@ -98,7 +98,7 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
 
             Text(
              widget.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.w600
               ),
@@ -108,10 +108,10 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
 
             TextFormField(
               initialValue: _value,
-              inputFormatters: [],
+              inputFormatters: widget.inputFormatter,
               onChanged: _onChanged,
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 labelText: widget.placeholder,
                 errorText: _errorText
               ),

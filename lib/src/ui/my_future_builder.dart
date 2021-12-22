@@ -22,5 +22,4 @@ class MyFutureBuilder<T> extends FutureBuilder<T> {
           return pendingBuilder!.call(context);
         }
       );
-
 }

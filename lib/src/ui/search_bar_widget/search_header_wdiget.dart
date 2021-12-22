@@ -14,20 +14,21 @@ class SearchHeaderWidget extends StatelessWidget {
   final Widget? searchBarFilterWidget;
   final bool? searchBarHasDivider;
 
-  SearchHeaderWidget({
+  const SearchHeaderWidget({
+    Key? key, 
     required this.title,
     this.actions,
     required this.searchBarLabel,
     this.searchBarFilterWidget,
     this.searchBarHasDivider,
     required this.onChanged
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // color: Colors.white,
-      padding: EdgeInsets.only(top: 20.0, bottom: 30.0),
+      padding: const EdgeInsets.only(top: 20.0, bottom: 30.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,7 +41,7 @@ class SearchHeaderWidget extends StatelessWidget {
 
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w600
                   ),

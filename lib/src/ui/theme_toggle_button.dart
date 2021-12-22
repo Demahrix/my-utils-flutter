@@ -8,13 +8,14 @@ class ThemeToggleButton extends StatelessWidget {
   final ThemeSwitcherBloc bloc;
 
   // 🌚🌜☀️🌞
-  ThemeToggleButton(
+  const ThemeToggleButton(
     this.bloc, {
-      this.lightIcon: const Icon(Icons.wb_sunny_outlined, color: Colors.black),
-      this.darkIcon: const Icon(Icons.nights_stay_outlined, color: Colors.white)
-  });
+      Key? key,
+      this.lightIcon = const Icon(Icons.wb_sunny_outlined, color: Colors.black),
+      this.darkIcon = const Icon(Icons.nights_stay_outlined, color: Colors.white)
+  }): super(key: key);
 
-  ThemeToggleButton.unicode(this.bloc):
+  const ThemeToggleButton.unicode(this.bloc, { Key? key }):
     lightIcon = const Text(
         "🌜",
         textAlign: TextAlign.center,
@@ -26,7 +27,7 @@ class ThemeToggleButton extends StatelessWidget {
         style: TextStyle(
           fontSize: 18.0
         ),
-    );
+    ), super(key: key);
 
   @override
   Widget build(BuildContext context) {

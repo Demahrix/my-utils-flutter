@@ -22,11 +22,12 @@ class CircleAvatarLetters extends StatelessWidget {
 
   const CircleAvatarLetters(
     this.name, {
+      Key? key,
       this.radius = 20.0,
-      this.transparent: false,
+      this.transparent = false,
       this.fontWeight = FontWeight.w600
     }
-  );
+  ): super(key: key);
 
   @override
   Widget build(BuildContext context) {

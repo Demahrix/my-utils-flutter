@@ -65,7 +65,7 @@ void main() {
     AppVersion v2 = AppVersion("1.27.0+1");
     AppVersion v3 = AppVersion("1.28.0+1");
     AppVersion v4 = AppVersion("2.27.0+1");
-    AppVersion v5 = AppVersion("2.27.0");
+    // AppVersion v5 = AppVersion("2.27.0");
 
     test("compare", () {
       expect(v1 < v2, true);
