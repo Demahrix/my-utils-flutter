@@ -59,8 +59,6 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
   String? _value;
   String? _errorText;
 
-  late final double _width;
-
   static final ButtonStyle _buttonStyle = ButtonStyle(
     padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0)),
     elevation: MaterialStateProperty.all(0.0)
@@ -70,7 +68,6 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
   void initState() {
     super.initState();
     _value = widget.initialValue;
-    _width = widget.width ?? MediaQuery.of(context).size.width * 0.6;
   }
 
   void _onChanged(String value) {
@@ -101,7 +98,7 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        width: _width,
+        width: widget.width ?? MediaQuery.of(context).size.width * 0.6,
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
