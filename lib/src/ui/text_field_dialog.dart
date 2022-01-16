@@ -9,8 +9,9 @@ Future<String?> showTextFieldDialog({
     String initialValue = "",
     String primaryLabel = "Enregister",
     String secondaryLabel = "Annuler",
-    String Function(String?)? validator,
-    List<TextInputFormatter> inputFormatter = const []
+    String? Function(String?)? validator,
+    List<TextInputFormatter> inputFormatter = const [],
+    double? width
   }) {
   return showDialog<String?>(
     context: context,
@@ -22,6 +23,7 @@ Future<String?> showTextFieldDialog({
       secondaryLabel: secondaryLabel,
       validator: validator,
       inputFormatter: inputFormatter,
+      width: width
     )
   );
 }
@@ -33,8 +35,9 @@ class _TextFieldDialog extends StatefulWidget {
   final String initialValue;
   final String primaryLabel;
   final String secondaryLabel;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final List<TextInputFormatter> inputFormatter;
+  final double? width;
 
   const _TextFieldDialog({
     required this.title,
@@ -43,7 +46,8 @@ class _TextFieldDialog extends StatefulWidget {
     required this.primaryLabel,
     required this.secondaryLabel,
     required this.validator,
-    this.inputFormatter = const []
+    this.inputFormatter = const [],
+    this.width
   });
 
   @override
@@ -55,6 +59,8 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
   String? _value;
   String? _errorText;
 
+  late final double _width;
+
   static final ButtonStyle _buttonStyle = ButtonStyle(
     padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0)),
     elevation: MaterialStateProperty.all(0.0)
@@ -64,6 +70,7 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
   void initState() {
     super.initState();
     _value = widget.initialValue;
+    _width = widget.width ?? MediaQuery.of(context).size.width * 0.6;
   }
 
   void _onChanged(String value) {
@@ -75,6 +82,14 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
   }
 
   void _onDone() {
+
+    // Au cas ou on clique sur le button 'enregistrer' des le depart
+    if (widget.validator != null) {
+      _errorText = widget.validator!(_value);
+      if (_errorText != null)
+        setState(() {});
+    }
+
     Navigator.of(context, rootNavigator: true).pop(_value);
   }
 
@@ -84,10 +99,9 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Dialog(
       child: Container(
-        width: width * 0.6,
+        width: _width,
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
