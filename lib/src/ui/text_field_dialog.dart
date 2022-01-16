@@ -83,8 +83,10 @@ class __TextFieldDialogState extends State<_TextFieldDialog> {
     // Au cas ou on clique sur le button 'enregistrer' des le depart
     if (widget.validator != null) {
       _errorText = widget.validator!(_value);
-      if (_errorText != null)
+      if (_errorText != null) {
         setState(() {});
+        return;
+      }
     }
 
     Navigator.of(context, rootNavigator: true).pop(_value);
