@@ -1,6 +1,15 @@
 
 class ListUtils {
 
+  static E? findFirst<E>(List<E> l, bool Function(E) f) {
+    for (int i=0, len=l.length; i<len; ++i) {
+      final e = l[i];
+      if (f(e))
+        return e;
+    }
+    return null;
+  }
+
   // for classic > list.generate > for in
   static List<V>? zMap<U, V>(List<U>? l, V Function(U) f) {
     if (l == null)
