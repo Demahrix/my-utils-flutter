@@ -19,13 +19,15 @@ class CircleAvatarLetters extends StatelessWidget {
   final double radius;
   final bool transparent;
   final FontWeight fontWeight;
+  final Color? defaultColor;
 
   const CircleAvatarLetters(
     this.name, {
       Key? key,
       this.radius = 20.0,
       this.transparent = false,
-      this.fontWeight = FontWeight.w600
+      this.fontWeight = FontWeight.w600,
+      this.defaultColor
     }
   ): super(key: key);
 
@@ -34,7 +36,7 @@ class CircleAvatarLetters extends StatelessWidget {
 
     final String letters = _getInitialLetter(name).toUpperCase();
 
-    final color = _getColor(letters);
+    final color = defaultColor ?? _getColor(letters);
 
     return CircleAvatar(
       backgroundColor: transparent ? color.withOpacity(0.25) : color,
