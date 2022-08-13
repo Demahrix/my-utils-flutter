@@ -10,10 +10,10 @@ class ThemeToggleButton extends StatelessWidget {
   // 🌚🌜☀️🌞
   const ThemeToggleButton(
     this.bloc, {
-      Key? key,
+      super.key,
       this.lightIcon = const Icon(Icons.wb_sunny_outlined, color: Colors.black),
       this.darkIcon = const Icon(Icons.nights_stay_outlined, color: Colors.white)
-  }): super(key: key);
+  });
 
   const ThemeToggleButton.unicode(this.bloc, { Key? key }):
     lightIcon = const Text(

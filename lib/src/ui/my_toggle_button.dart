@@ -8,15 +8,15 @@ class MyToggleButton extends StatefulWidget {
   final double height;
 
   const MyToggleButton({
-    Key? key,
+    super.key,
     this.initialValue = 0,
     required this.children,
     required this.onChanged,
     this.height = 36.0,
-  }): super(key: key);
+  });
 
   @override
-  _MyToggleButtonState createState() => _MyToggleButtonState();
+  State<MyToggleButton> createState() => _MyToggleButtonState();
 }
 
 class _MyToggleButtonState extends State<MyToggleButton> {

@@ -42,7 +42,7 @@ class DoubleUtils {
 
     String result = sb.toString();
     // on faire +1 car on rempalce le '.' par le ','
-    return includeFloatPart ? result + "," + str.substring(length + 1) : result;
+    return includeFloatPart ? '$result,${str.substring(length + 1)}' : result;
   }
 
 }

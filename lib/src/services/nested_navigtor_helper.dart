@@ -8,12 +8,12 @@ class NestedNavigatorHelper extends StatelessWidget {
   final List<NavigatorObserver> observers;
 
   const NestedNavigatorHelper({
-    Key? key, 
+    super.key, 
     required this.navigationKey,
     required this.initialRoute,
     required this.onGenerateRoute,
     this.observers = const []
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

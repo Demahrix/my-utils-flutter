@@ -23,13 +23,13 @@ class CircleAvatarLetters extends StatelessWidget {
 
   const CircleAvatarLetters(
     this.name, {
-      Key? key,
+      super.key,
       this.radius = 20.0,
       this.transparent = false,
       this.fontWeight = FontWeight.w600,
       this.defaultColor
     }
-  ): super(key: key);
+  );
 
   @override
   Widget build(BuildContext context) {

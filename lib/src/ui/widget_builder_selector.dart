@@ -6,10 +6,10 @@ class WidgetBuilderSelector extends StatelessWidget {
   final List<Widget Function()> builders;
 
   const WidgetBuilderSelector({
-    Key? key,
+    super.key,
     required this.index,
     required this.builders
-  }): super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

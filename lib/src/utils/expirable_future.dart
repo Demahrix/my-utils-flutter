@@ -16,7 +16,7 @@ class ExpirableFuture<T> {
   /// et annule le precedent future
   void add(Future<T> f) {
     _mostRecentFuture = f;
-    
+
     f.then((data) {
       if (_mostRecentFuture == f)
         onData(data);

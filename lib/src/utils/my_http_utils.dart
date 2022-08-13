@@ -7,7 +7,7 @@ class MyHttpUtils {
     for (final entry in queries.entries) {
       if (entry.value == null) continue;
 
-      String query = entry.key + "=" + entry.value.toString();
+      String query = '${entry.key}=${entry.value.toString()}';
       if (sb == null) {
         sb = StringBuffer(query);
       } else {
@@ -20,7 +20,7 @@ class MyHttpUtils {
       return "";
 
     final result = Uri.decodeQueryComponent(sb.toString());
-    return includeQuestionMark ? '?' + result : result;
+    return includeQuestionMark ? '?$result' : result;
   }
 
 }
