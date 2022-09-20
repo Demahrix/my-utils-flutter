@@ -1,4 +1,6 @@
 
+
+@Deprecated("")
 class AppVersion {
 
   final String value;
