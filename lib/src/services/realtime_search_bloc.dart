@@ -1,18 +1,21 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:my_utils/src/enum/my_future_state.dart';
 
 class RealtimeSearchBlocData<T> {
 
-  final MyFutureState state;
   final List<T>? data;
   final Object? error;
 
   RealtimeSearchBlocData({
-    required this.state,
     this.data,
     this.error
   });
+
+  MyFutureState get state => data != null
+    ? MyFutureState.success
+    : error != null
+      ? MyFutureState.error
+      : MyFutureState.waiting;
 
   // add method has data ???
   // has error
@@ -45,20 +48,15 @@ class RealtimeSearchBloc<T, U> {
     if (_mostRecentFuture == null)
       return;
 
-    _controller.add(RealtimeSearchBlocData(state: MyFutureState.waiting));
+    // Notify loading
+    _controller.add(RealtimeSearchBlocData());
 
     _mostRecentFuture!.then((value) {
-      log(value.toString(), name: 'result');
-      _controller.add(RealtimeSearchBlocData(
-        state: MyFutureState.success,
-        data: value
-      ));
+      // Notify success
+      _controller.add(RealtimeSearchBlocData(data: value));
     }, onError: (err) {
-      log(err.toString(), name: 'Error');
-      _controller.add(RealtimeSearchBlocData(
-        state: MyFutureState.error,
-        error: err
-      ));
+      // Notify error
+      _controller.add(RealtimeSearchBlocData(error: err));
     });
   }
 

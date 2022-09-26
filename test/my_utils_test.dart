@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:my_utils/src/services/app_version.dart';
 import 'package:my_utils/src/services/theme_switcher_bloc.dart';
 import 'package:my_utils/src/services/unique_instance.dart';
 import 'package:my_utils/src/utils/my_http_utils.dart';
@@ -56,25 +55,6 @@ void main() {
   });
 
   group("test lazy register", () {
-
-  });
-
-  group("app version", () {
-
-    AppVersion v1 = AppVersion("1.27.0");
-    AppVersion v2 = AppVersion("1.27.0+1");
-    AppVersion v3 = AppVersion("1.28.0+1");
-    AppVersion v4 = AppVersion("2.27.0+1");
-    // AppVersion v5 = AppVersion("2.27.0");
-
-    test("compare", () {
-      expect(v1 < v2, true);
-    });
-
-    test("compare", () {
-      expect(v4 < v3, false);
-    });
-
 
   });
 
