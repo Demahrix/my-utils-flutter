@@ -6,7 +6,7 @@ class RealtimeSearchBlocData<T> {
   final List<T>? data;
   final Object? error;
 
-  RealtimeSearchBlocData({
+  const RealtimeSearchBlocData({
     this.data,
     this.error
   });
@@ -49,7 +49,7 @@ class RealtimeSearchBloc<T, U> {
       return;
 
     // Notify loading
-    _controller.add(RealtimeSearchBlocData());
+    _controller.add(const RealtimeSearchBlocData());
 
     _mostRecentFuture!.then((value) {
       // Notify success
