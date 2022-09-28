@@ -25,3 +25,4 @@ export 'src/ui/text_field_dialog.dart';
 export 'src/ui/my_toggle_button.dart';
 export 'src/ui/my_future_builder.dart';
 export 'src/ui/widget_builder_selector.dart';
+export 'src/ui/alert_text.dart';

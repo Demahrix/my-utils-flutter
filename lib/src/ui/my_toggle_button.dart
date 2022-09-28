@@ -43,51 +43,54 @@ class _MyToggleButtonState extends State<MyToggleButton> {
 
     final int length = _children.length;
 
-    return Container(
-      height: widget.height,
-      padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(6.0)
-      ),
-      child: LayoutBuilder(
-        builder: (context, snapshot) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: Container(
+        height: widget.height,
+        padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.05),
+          borderRadius: BorderRadius.circular(6.0)
+        ),
+        child: LayoutBuilder(
+          builder: (context, snapshot) {
 
-          final double width = snapshot.maxWidth / _children.length;
+            final double width = snapshot.maxWidth / _children.length;
 
-          return Stack(
-            children: [
+            return Stack(
+              children: [
 
-              AnimatedPositioned(
-                left: _currentValue * width,
-                width: width,
-                height: snapshot.maxHeight,
-                duration: const Duration(milliseconds: 100),
-                curve: Curves.easeOut,
-                child: Container(
+                AnimatedPositioned(
+                  left: _currentValue * width,
                   width: width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(6.0)
+                  height: snapshot.maxHeight,
+                  duration: const Duration(milliseconds: 100),
+                  curve: Curves.easeOut,
+                  child: Container(
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(6.0)
+                    ),
                   ),
                 ),
-              ),
 
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: List.generate(length, (index) {
-                  return Expanded(
-                    child: GestureDetector(
-                      onTap: () => _onChanged(index),
-                      child: Center(child: _children[index]),
-                    )
-                  );
-                }),
-              )
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: List.generate(length, (index) {
+                    return Expanded(
+                      child: GestureDetector(
+                        onTap: () => _onChanged(index),
+                        child: Center(child: _children[index]),
+                      )
+                    );
+                  }),
+                )
 
-            ],
-          );
-        }
+              ],
+            );
+          }
+        ),
       ),
     );
   }
