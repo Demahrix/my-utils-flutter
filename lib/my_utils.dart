@@ -15,6 +15,7 @@ export 'src/utils/expirable_future.dart';
 export 'src/services/realtime_search_bloc.dart';
 
 export 'src/models/http_error.dart';
+export 'src/models/my_future_data.dart';
 
 export 'src/ui/search_bar_widget/search_bar_widget.dart';
 export 'src/ui/search_bar_widget/search_header_wdiget.dart';

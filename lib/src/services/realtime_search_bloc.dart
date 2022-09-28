@@ -1,26 +1,7 @@
 import 'dart:async';
-import 'package:my_utils/src/enum/my_future_state.dart';
+import 'package:my_utils/src/models/my_future_data.dart';
 
-class RealtimeSearchBlocData<T> {
-
-  final List<T>? data;
-  final Object? error;
-
-  const RealtimeSearchBlocData({
-    this.data,
-    this.error
-  });
-
-  MyFutureState get state => data != null
-    ? MyFutureState.success
-    : error != null
-      ? MyFutureState.error
-      : MyFutureState.waiting;
-
-  // add method has data ???
-  // has error
-
-}
+typedef RealtimeSearchBlocData<T> = MyFutureData<List<T>>;
 
 /// `T` is item type
 /// `U` is search params model
@@ -39,7 +20,7 @@ class RealtimeSearchBloc<T, U> {
   }): _params = initialParams;
 
   U? get params => _params;
-  Stream<RealtimeSearchBlocData<T>> get listen => _controller.stream;
+  Stream<MyFutureData<List<T>>> get listen => _controller.stream;
 
   void search(U params) {
     _params = params;
@@ -49,14 +30,14 @@ class RealtimeSearchBloc<T, U> {
       return;
 
     // Notify loading
-    _controller.add(const RealtimeSearchBlocData());
+    _controller.add(const MyFutureData());
 
     _mostRecentFuture!.then((value) {
       // Notify success
-      _controller.add(RealtimeSearchBlocData(data: value));
+      _controller.add(MyFutureData.withData(value));
     }, onError: (err) {
       // Notify error
-      _controller.add(RealtimeSearchBlocData(error: err));
+      _controller.add(MyFutureData.withError(err));
     });
   }
 
