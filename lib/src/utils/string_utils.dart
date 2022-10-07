@@ -33,12 +33,13 @@ class StringUtils {
     return s[0].toUpperCase() + s.substring(1);
   }
 
-  static String capitaizeAll(String s) {
-    return "0";
+  static String capitalizeAll(String s) {
+    return s.split(' ').map((e) => capitalize(e)).join(' ');
   }
 
   static bool isEmail(String s) {
-    throw UnimplementedError();
+    return RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+      .hasMatch(s);
   }
 
 }
