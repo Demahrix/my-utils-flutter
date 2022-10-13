@@ -10,7 +10,6 @@ export 'src/services/nested_navigtor_helper.dart';
 export 'src/services/my_navigator_observer.dart';
 export 'src/services/theme_switcher_bloc.dart';
 export 'src/utils/expirable_future.dart';
-export 'src/services/realtime_search_bloc.dart';
 
 export 'src/models/http_error.dart';
 
