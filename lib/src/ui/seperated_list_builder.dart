@@ -1,0 +1,11 @@
+import 'package:flutter/material.dart';
+
+List<Widget> separatedListBuilder(
+  int length, {
+    required Widget Function(int index) builder,
+    required Widget Function(int index) separatedBuilder
+  }) => List<Widget>.generate(length * 2 - 1, (index) {
+    if (index & 1 == 1)
+      return separatedBuilder(index ~/ 2);
+    return builder(index ~/ 2);
+  }, growable: false);
