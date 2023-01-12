@@ -42,4 +42,20 @@ class StringUtils {
       .hasMatch(s);
   }
 
+  static formatName(String name, { bool firstInUpper = true }) {
+    StringBuffer sb = StringBuffer();
+    List<String> parts = name.split(' ');
+    for (int i=0, len=parts.length; i<len; ++i) {
+      String p = parts[i];
+      if (i == 0 && firstInUpper)
+        sb.write(p.toUpperCase());
+      else
+        sb.write(p[0].toUpperCase() + p.substring(1));
+
+      if (i != len - 1)
+        sb.write(' ');
+    }
+    return sb.toString();
+  }
+
 }
