@@ -11,7 +11,7 @@ class HttpError implements Exception {
 
   factory HttpError.parse(int statusCode, String data) {
     try {
-      return HttpError(statusCode, null, json.decode(data));
+      return HttpError(statusCode, null, HttpErrorData.fromJson(json.decode(data)));
     } catch(_) {
       return HttpError(statusCode, data);
     }

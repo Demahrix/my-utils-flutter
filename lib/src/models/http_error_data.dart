@@ -10,4 +10,9 @@ class HttpErrorData {
     return HttpErrorData(data['code'], data['data']);
   }
 
+  @override
+  String toString() {
+    return "HttpErrorData: code: $code, data $data";
+  }
+
 }
