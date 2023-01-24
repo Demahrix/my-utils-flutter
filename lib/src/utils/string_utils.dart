@@ -47,6 +47,10 @@ class StringUtils {
     List<String> parts = name.split(' ');
     for (int i=0, len=parts.length; i<len; ++i) {
       String p = parts[i];
+
+      if (p.isEmpty)
+        continue;
+
       if (i == 0 && firstInUpper)
         sb.write(p.toUpperCase());
       else
