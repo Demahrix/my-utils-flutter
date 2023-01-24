@@ -1,7 +1,7 @@
 
 class HttpErrorData {
 
-  final String code;
+  final String? code;
   final Map<String, dynamic>? data;
 
   HttpErrorData(this.code, this.data);
