@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@Deprecated("use SegmentedButton")
 class MyToggleButton extends StatefulWidget {
 
   final int initialValue;
