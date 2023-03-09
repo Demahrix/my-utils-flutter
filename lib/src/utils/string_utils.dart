@@ -42,7 +42,7 @@ class StringUtils {
       .hasMatch(s);
   }
 
-  static formatName(String name, { bool firstInUpper = true }) {
+  static String formatName(String name, { bool firstInUpper = true }) {
     StringBuffer sb = StringBuffer();
     List<String> parts = name.split(' ');
     for (int i=0, len=parts.length; i<len; ++i) {
@@ -62,4 +62,24 @@ class StringUtils {
     return sb.toString();
   }
 
+  static String getShorterName(String name) {
+    StringBuffer sb = StringBuffer();
+    List<String> parts = name.split(' ');
+    int count = parts.length;
+    for (int i=0; i<count-1; ++i)
+      sb.write('${parts[i][0].toUpperCase()}. ');
+
+    if (count != 0) {
+      String last = parts[count - 1];
+      sb.write(last[0].toUpperCase() + last.substring(1));
+    }
+
+    return sb.toString();
+  } 
+
+}
+
+
+void main(List<String> args) {
+  print(StringUtils.getShorterName('Zougouri test ahmend'));
 }
