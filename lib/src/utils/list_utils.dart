@@ -39,4 +39,24 @@ class ListUtils {
     return newList;
   }
 
+  /// La liste ne doit pas etre vide
+  static E max<E extends num>(List<E> l) {
+    E value = l[0];
+    for (int i=1, len=l.length; i<len; ++i) {
+      if (l[i] > value)
+        value = l[i];
+    }
+    return value;
+  }
+
+  /// La liste ne doit pas etre vide
+  static E min<E extends num>(List<E> l) {
+    E value = l[0];
+    for (int i=1, len=l.length; i<len; ++i) {
+      if (l[i] < value)
+        value = l[i];
+    }
+    return value;
+  }
+
 }
