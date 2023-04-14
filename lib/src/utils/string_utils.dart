@@ -78,8 +78,3 @@ class StringUtils {
   } 
 
 }
-
-
-void main(List<String> args) {
-  print(StringUtils.getShorterName('Zougouri test ahmend'));
-}
