@@ -1,26 +1,30 @@
 
 class MyHttpUtils {
 
-  static String toQuery(Map<String, Object?> queries, [ bool includeQuestionMark = true ]) {
-    StringBuffer? sb;
+  /// `buildUrl('http://127.0.0.1:5000', '/hello', { 'sort': 'asc', 'sortBy': 'name,size' })`
+  static Uri buildUrl(String url, String path, Map<String, dynamic>? query) {
+    String q = query == null || query.isEmpty
+      ? ''
+      : '?${getQueryParams(query)}';
+    return Uri.parse('$url$path$q');
+  }
 
-    for (final entry in queries.entries) {
-      if (entry.value == null) continue;
+  static String getQueryParams(Map<String, dynamic> params) {
+    List<String> parts = [];
 
-      String query = '${entry.key}=${entry.value.toString()}';
-      if (sb == null) {
-        sb = StringBuffer(query);
-      } else {
-        sb.write("&");
-        sb.write(query);
-      }
+    final values = params.entries.toList();
+    final len = values.length;
+
+    for (int i=0; i<len; ++i) {
+      final e = values[i];
+      if (e.value == null)
+        continue;
+
+      final v = e.value;
+      parts.add('${e.key}=${Uri.encodeComponent(v is List ? v.join(',') : v.toString())}');
     }
 
-    if (sb == null)
-      return "";
-
-    final result = Uri.decodeQueryComponent(sb.toString());
-    return includeQuestionMark ? '?$result' : result;
+    return parts.join('&');
   }
 
 }
