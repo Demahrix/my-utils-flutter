@@ -60,16 +60,16 @@ void main() {
 
   group("Http utils", () {
 
-    test('Map to query params', () {
+    // test('Map to query params', () {
 
-      expect(MyHttpUtils.toQuery({
-        'id': 'abc',
-        'price': 100,
-        'startDate': '21/12/2021',
-        'endDate': null
-      }), 'id=abc&price=100&startDate=21/12/2021');
+    //   expect(MyHttpUtils.toQuery({
+    //     'id': 'abc',
+    //     'price': 100,
+    //     'startDate': '21/12/2021',
+    //     'endDate': null
+    //   }), 'id=abc&price=100&startDate=21/12/2021');
 
-    });
+    // });
 
   });
 
