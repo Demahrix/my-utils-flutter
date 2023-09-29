@@ -6,17 +6,17 @@ class MyFutureBuilder<T> extends FutureBuilder<T> {
     super.key,
     super.initialData,
     super.future,
-    Widget Function(BuildContext)? pendingBuilder,
+    required Widget Function(BuildContext) pendingBuilder,
     required Widget Function(BuildContext, T) dataBuilder,
-    Widget Function(BuildContext, Object?)? errorBuilder
+    required Widget Function(BuildContext, Object?) errorBuilder
   }) : super(
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError)
-              return errorBuilder!.call(context, snapshot.error);
+              return errorBuilder(context, snapshot.error);
             return dataBuilder(context, snapshot.data!);
           }
-          return pendingBuilder!.call(context);
+          return pendingBuilder(context);
         }
       );
 }
