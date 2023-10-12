@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+
+class MyDropdown<T> extends DropdownButtonFormField<T> {
+
+  MyDropdown({
+    super.value,
+    required List<T> values,
+    required super.onChanged,
+    required super.decoration,
+    required Widget Function(T) itemBuilder
+  }): super(
+    items: List.generate(values.length, (index) => DropdownMenuItem(value: values[index], child: itemBuilder(values[index])))
+  );
+
+}
