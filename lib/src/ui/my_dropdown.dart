@@ -4,6 +4,7 @@ class MyDropdown<T> extends DropdownButtonFormField<T> {
 
   MyDropdown({
     super.value,
+    super.hint,
     required List<T> values,
     required super.onChanged,
     required super.decoration,
