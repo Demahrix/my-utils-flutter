@@ -19,6 +19,7 @@ List<Widget> separatedListBuilderAlt<T>(
     return List<Widget>.generate(count == 0 ? 0 : count * 2 - 1, (index) {
       if (index & 1 == 1)
         return separatedBuilder(index ~/ 2);
-      return builder(items[index], index ~/ 2);
+      var rIndex =  index ~/ 2;
+      return builder(items[rIndex], rIndex);
     }, growable: false);
   }
