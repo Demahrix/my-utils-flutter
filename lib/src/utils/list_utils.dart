@@ -59,4 +59,16 @@ class ListUtils {
     return value;
   }
 
+  static bool equals<E>(List<E> l1, List<E> l2) {
+    if (identical(l1, l2))
+      return true;
+    if (l1.length != l2.length)
+      return false;
+
+    for (var i=0,l=l1.length; i<l; ++i)
+      if (l1[i] != l2[i])
+        return false;
+    return true;
+  }
+
 }
