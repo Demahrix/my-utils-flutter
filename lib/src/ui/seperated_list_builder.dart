@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@Deprecated("use [MyWidgetUtils]")
 List<Widget> separatedListBuilder(
   int length, {
     required Widget Function(int index) builder,
@@ -10,6 +11,8 @@ List<Widget> separatedListBuilder(
     return builder(index ~/ 2);
   }, growable: false);
 
+
+@Deprecated("use [MyWidgetUtils]")
 List<Widget> separatedListBuilderAlt<T>(
   List<T> items, {
     required Widget Function(T item, int index) builder,
