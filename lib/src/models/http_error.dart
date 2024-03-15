@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:my_utils/src/models/http_error_data.dart';
+
+import 'http_error_data.dart';
 
 class HttpError implements Exception {
 

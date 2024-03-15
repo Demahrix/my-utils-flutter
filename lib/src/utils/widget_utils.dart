@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyWidgetUtils {
 
-  List<Widget> separatedListBuilder(
+  static List<Widget> separatedListBuilder(
     int length, {
       required Widget Function(int index) builder,
       required Widget Function(int index) separatedBuilder
@@ -12,7 +12,7 @@ class MyWidgetUtils {
       return builder(index ~/ 2);
     }, growable: false);
 
-  List<Widget> separatedListBuilderAlt<T>(
+  static List<Widget> separatedListBuilderAlt<T>(
     List<T> items, {
       required Widget Function(T item, int index) builder,
       required Widget Function(int index) separatedBuilder
