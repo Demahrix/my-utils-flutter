@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MyDropdown<T> extends DropdownButtonFormField<T> {
 
   MyDropdown({
+    super.key,
     super.value,
     super.hint,
     required List<T> values,
