@@ -11,7 +11,9 @@ class MyDropdown<T> extends DropdownButtonFormField<T> {
     super.decoration,
     required Widget Function(T) itemBuilder,
     super.itemHeight,
-    super.menuMaxHeight
+    super.menuMaxHeight,
+    super.isDense,
+    super.isExpanded
   }): super(
     items: List.generate(values.length, (index) => DropdownMenuItem(value: values[index], child: itemBuilder(values[index])))
   );
