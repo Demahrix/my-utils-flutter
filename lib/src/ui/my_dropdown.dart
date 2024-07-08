@@ -9,13 +9,13 @@ class MyDropdown<T> extends DropdownButtonFormField<T> {
     required List<T> values,
     super.onChanged,
     super.decoration,
-    required Widget Function(T) itemBuilder,
+    required Widget Function(T, int) itemBuilder,
     super.itemHeight,
     super.menuMaxHeight,
     super.isDense,
     super.isExpanded
   }): super(
-    items: List.generate(values.length, (index) => DropdownMenuItem(value: values[index], child: itemBuilder(values[index])))
+    items: List.generate(values.length, (index) => DropdownMenuItem(value: values[index], child: itemBuilder(values[index], index)))
   );
 
 }
