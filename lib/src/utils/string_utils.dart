@@ -77,4 +77,6 @@ class StringUtils {
     return sb.toString();
   } 
 
+  static int levenshteinDistance(String a, String b) => levenshteinDistance(a, b);
+
 }
