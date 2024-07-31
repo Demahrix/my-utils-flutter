@@ -1,6 +1,8 @@
 
 class StringUtils {
 
+  StringUtils._();
+
   static bool isFalsy(String? s) {
     return s == null || s == "" || s.trim() == "";
   }
