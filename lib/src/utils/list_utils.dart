@@ -1,42 +1,55 @@
 
-// FIXME remove
-class ListUtils {
+extension MyListExtension<E> on List<E> {
 
-  static E? findFirst<E>(List<E> l, bool Function(E) f) {
-    for (int i=0, len=l.length; i<len; ++i) {
-      final e = l[i];
-      if (f(e))
+  E? zFind(bool Function(E, int) fn) {
+    for (int i=0, len=this.length; i<len; ++i) {
+      var e = this[i];
+      if (fn(e, i))
         return e;
     }
     return null;
   }
 
-  // for classic > list.generate > for in
-  static List<V>? zMap<U, V>(List<U>? l, V Function(U) f) {
-    if (l == null)
-      return null;
-
+  List<V>? zMap<V>(V Function(E, int) fn) {
     final List<V> newList = [];
-    for (int i=0, len=l.length; i<len; ++i)
-      newList.add(f(l[i]));
+    for (int i=0, len=this.length; i<len; ++i)
+      newList.add(fn(this[i], i));
     return newList;
   }
+
+  List<E> zFilter(bool Function(E, int) fn) {
+    List<E> newList = [];
+    for (int i=0, len=this.length; i<len; ++i) {
+      var e = this[i];
+      if (fn(e, i))
+        newList.add(e);
+    }
+    return newList;
+  }
+
+  bool equals(List<E> l) {
+    if (identical(this, l))
+      return true;
+    if (this.length != l.length)
+      return false;
+
+    for (var i=0,len=this.length; i<len; ++i)
+      if (this[i] != l[i])
+        return false;
+    return true;
+  }
+
+}
+
+
+// FIXME remove
+class ListUtils {
 
   static V? zReduce<U, V>(List<U> l, V Function(V? acc, U element) f, [V? initialValue]) {
     V? value = initialValue;
     for (int i=0, len=l.length; i<len; ++i)
       value = f(value, l[i]);
     return value;
-  }
-
-  static List<E> zFilter<E>(List<E> l, bool Function(E) f) {
-    List<E> newList = [];
-    for (int i=0, len=l.length; i<len; ++i) {
-      var e = l[i];
-      if (f(e))
-        newList.add(e);
-    }
-    return newList;
   }
 
   /// La liste ne doit pas etre vide
@@ -57,18 +70,6 @@ class ListUtils {
         value = l[i];
     }
     return value;
-  }
-
-  static bool equals<E>(List<E> l1, List<E> l2) {
-    if (identical(l1, l2))
-      return true;
-    if (l1.length != l2.length)
-      return false;
-
-    for (var i=0,l=l1.length; i<l; ++i)
-      if (l1[i] != l2[i])
-        return false;
-    return true;
   }
 
 }
