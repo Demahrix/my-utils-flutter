@@ -27,3 +27,5 @@ export 'src/ui/seperated_list_builder.dart';
 export 'src/ui/my_dropdown.dart';
 
 export 'src/utils/widget_utils.dart';
+
+export 'src/utils/responsive_utils.dart';
