@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class ResponsiveUtils {
 
+  ResponsiveUtils._();
+
   static double withByOrientation(BuildContext context) {
     var orientation = MediaQuery.orientationOf(context);
     var size = MediaQuery.sizeOf(context);
@@ -12,7 +14,6 @@ class ResponsiveUtils {
 
   /// https://pmatatias.medium.com/responsive-layout-with-buildcontext-dart-extension-3-145e438fb652
   static T of<T>(
-    BuildContext context,
     double value,
     T defaultVal, {
     T? sm,
@@ -34,7 +35,6 @@ class ResponsiveUtils {
 
   /// https://stackoverflow.com/a/43445722
   static T ofAlt<T>(
-    BuildContext context,
     double value,
     T defaultVal, {
     T? sm,
