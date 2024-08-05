@@ -12,7 +12,33 @@ class ResponsiveUtils {
     return size.height;
   }
 
-  /// https://pmatatias.medium.com/responsive-layout-with-buildcontext-dart-extension-3-145e438fb652
+  /// https://pmatatias.medium.com/responsive-layout-with-buildcontext-dart-extension-3-145e438fb652.
+  /// 
+  /// Exemple:
+  /// 
+  /// ```dart
+  /// GridView.count(
+  ///  crossAxisCount: context.responsive<int>(
+  ///    2, // default
+  ///    sm: 2, // small 
+  ///    md: 3, // medium
+  ///    lg: 4, // large 
+  //   xl: 5, // extra large screen
+  ///  )
+  /// ```
+  /// 
+  /// 
+  /// ```dart
+  /// Container(
+  ///   child: context.responsive<Widget>(
+  ///     mobileWidget, // default 
+  ///     md: tabletWidget, // medium
+  ///     lg: desktopWidget, // large
+  ///   ),
+  /// );
+  /// ```
+  /// 
+  /// 
   static T of<T>(
     double value,
     T defaultVal, {
