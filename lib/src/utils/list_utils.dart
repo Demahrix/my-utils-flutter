@@ -10,7 +10,7 @@ extension MyListExtension<E> on List<E> {
     return null;
   }
 
-  List<V>? zMap<V>(V Function(E, int) fn) {
+  List<V> zMap<V>(V Function(E, int) fn) {
     final List<V> newList = [];
     for (int i=0, len=this.length; i<len; ++i)
       newList.add(fn(this[i], i));
