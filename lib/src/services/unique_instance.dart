@@ -30,6 +30,14 @@ class UniqueInstance {
     throw Exception("Aucun element de type $T n'a été enregistré !");
   }
 
+  T? tryGet<T>() {
+    try {
+      return get<T>();
+    } catch (e) {
+      return null;
+    }
+  }
+
   /// Enregistre un objet de type `T`.
   /// **Eleve une exception** si un objet ou un factory retournant un objet du meme type exise déjà
   void register<T>(T object) {
