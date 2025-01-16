@@ -1,4 +1,5 @@
-import 'dart:convert';
+import 'dart:convert' show json, utf8;
+import 'dart:typed_data' show Uint8List;
 
 import 'http_error_data.dart';
 
@@ -15,6 +16,15 @@ class HttpError implements Exception {
       return HttpError(statusCode, null, HttpErrorData.fromJson(json.decode(data)));
     } catch(_) {
       return HttpError(statusCode, data);
+    }
+  }
+
+  factory HttpError.parseBytes(int statusCode, Uint8List data) {
+    var value = utf8.decode(data);
+    try {
+      return HttpError(statusCode, null, HttpErrorData.fromJson(json.decode(value)));
+    } catch(_) {
+      return HttpError(statusCode, value);
     }
   }
 
