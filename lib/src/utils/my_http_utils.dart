@@ -1,6 +1,8 @@
 
 class MyHttpUtils {
 
+  MyHttpUtils._();
+
   /// `buildUrl('http://127.0.0.1:5000', '/hello', { 'sort': 'asc', 'sortBy': 'name,size' })`
   static Uri buildUrl(String url, String path, Map<String, dynamic>? query) {
     String q = query == null || query.isEmpty

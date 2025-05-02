@@ -1,6 +1,8 @@
 
 class IntUtils {
 
+  IntUtils._();
+
   static String thousandFormatter(int n, [String separator = " "]) {
     String digits = n.toString();
     StringBuffer sb = StringBuffer();
@@ -22,6 +24,8 @@ class IntUtils {
 }
 
 class DoubleUtils {
+
+  DoubleUtils._();
 
   static String thousandFormatter(double n, {String separator = " ", bool includeFloatPart = true}) {
     String str = n.toStringAsFixed(2);

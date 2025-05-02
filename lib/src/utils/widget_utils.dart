@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class MyWidgetUtils {
 
+  MyWidgetUtils._();
+
   static List<Widget> separatedListBuilder(
     int length, {
       required Widget Function(int index) builder,
