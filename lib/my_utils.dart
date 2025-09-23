@@ -4,12 +4,13 @@ export 'src/utils/string_utils.dart';
 export 'src/utils/number_utils.dart';
 export 'src/utils/list_utils.dart';
 export 'src/utils/my_http_utils.dart';
+export 'src/utils/expirable_future.dart';
 
 export 'src/services/unique_instance.dart';
 export 'src/services/nested_navigtor_helper.dart';
 export 'src/services/my_navigator_observer.dart';
 export 'src/services/theme_switcher_bloc.dart';
-export 'src/utils/expirable_future.dart';
+export 'src/services/debouncer.dart';
 
 export 'src/models/http_error.dart';
 export 'src/models/http_error_data.dart';
