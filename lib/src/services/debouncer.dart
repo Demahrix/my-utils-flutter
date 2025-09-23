@@ -9,14 +9,19 @@ class Debouncer<T> {
 
   Debouncer({required this.delay});
 
-  Future<T> run(FutureOr<T> Function() action) {
-    // Annule l'exécution précédente
+  void run(void Function() action) {
     _timer?.cancel();
-    _completer?.completeError(StateError("Action annulée par un nouvel appel debounce"));
+    _timer = Timer(delay, action);
+  }
+
+  Future<T> runAsync(FutureOr<T> Function() action) {
+    _timer?.cancel();
+
+    if (_completer != null && !_completer!.isCompleted)
+      _completer?.completeError(StateError("Action annulée par un nouvel appel debounce"));
 
     _completer = Completer<T>();
 
-    // Redémarre le timer
     _timer = Timer(delay, () async {
       try {
         final result = await action();
