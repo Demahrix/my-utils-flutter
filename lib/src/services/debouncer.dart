@@ -15,10 +15,7 @@ class Debouncer<T> {
   }
 
   Future<T> runAsync(FutureOr<T> Function() action) {
-    _timer?.cancel();
-
-    if (_completer != null && !_completer!.isCompleted)
-      _completer?.completeError(StateError("Action annulée par un nouvel appel debounce"));
+      cancel();
 
     _completer = Completer<T>();
 
@@ -35,6 +32,13 @@ class Debouncer<T> {
     });
 
     return _completer!.future;
+  }
+
+  void cancel() {
+    _timer?.cancel();
+
+    if (_completer != null && !_completer!.isCompleted)
+      _completer?.completeError(StateError("Action annulée par un nouvel appel debounce"));
   }
 
   void dispose() {
